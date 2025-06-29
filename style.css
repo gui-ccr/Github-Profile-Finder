@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1a1a1a;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.app{
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+h1 {
+    margin-bottom: 20px;
+}
+
+#form-busca {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+#input-busca {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #444;
+    background-color: #282c34;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+}
+#form-busca button{
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+#form-busca button:hover {
+    background-color: #0056b3;
+}
+#resultado {
+    margin-top: 20px
+}
+.profile-card{
+    background-color: #282c34;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #444;
+    margin-top: 20px;
+    text-align: center;
+}
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* deixa a imagem redonda*/
+    border: 4px solid #007bff;
+    margin-bottom: 20px;
+}
+.profile-card h2 {
+    margin-bottom: 5px;
+    font-size:  28px;
+}
+.username{
+    color: #aaa;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+.bio{
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+.stats{
+    display: flex;
+    justify-content: space-around;
+    background-color: #1a1a1a;
+    padding: 15px;
+    border-radius: 5px;
+}
+.stats div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.stats strong{
+    font-size: 14px;
+    color: #aaa;
+    margin-bottom: 5px;
+}
+.stats span{
+    font-size: 24px;
+    font-weight: bold;
+}
+.erro {
+    color: #e06c75;
+    background-color: rgba(224, 108, 117, 0.1);
+    border: 1px solid #e06c75;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+/* Estilos para o container de repositórios */
+.repos-container {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.repos-container h3 {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+}
+
+.repos-container ul {
+    list-style-type: none; /* Remove as bolinhas da lista */
+}
+
+.repos-container li {
+    background-color: #282c34;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s;
+}
+
+.repos-container li:hover {
+    background-color: #3b4049;
+}
+
+.repos-container a {
+    color: #61dafb; /* Um azul claro para os links */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.repos-container a:hover {
+    text-decoration: underline;
+}
+
+.repos-container span {
+    color: #aaa;
+    font-size: 14px;
+}
