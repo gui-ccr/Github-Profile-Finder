@@ -2,7 +2,7 @@
 
 Uma aplicação web simples e elegante que permite buscar perfis de usuário do GitHub e visualizar suas informações detalhadas e repositórios mais populares em tempo real. Este projeto foi construído com HTML, CSS e JavaScript puro, focando no consumo de APIs REST e na manipulação assíncrona de dados.
 
-### 🔗 [Clique aqui para a demonstração ao vivo](https://gui-ccr.github.io/github-profile-finder/) 
+### 🔗 [Clique aqui para a demonstração ao vivo](https://gui-ccr.github.io/Github-Profile-Finder/)] 
 
 
 ---
@@ -63,7 +63,7 @@ Feito com dedicação por **Guilherme CCR**.
 
 ```bash
 # 1. Clone este repositório
-$ git clone [https://github.com/gui-ccr/github-profile-finder.git](https://github.com/gui-ccr/github-profile-finder.git)
+$ git clone [https://github.com/gui-ccr/github-profile-finder.git]
 
 # 2. Navegue até o diretório do projeto
 $ cd github-profile-finder
