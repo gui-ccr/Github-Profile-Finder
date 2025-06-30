@@ -45,6 +45,7 @@ if (temaSalvo) {
 const form = document.querySelector('#form-busca');
 const input = document.querySelector('#input-busca');
 const resultadoDiv = document.querySelector('#resultado');
+const spinner = document.querySelector('#spinner')
 
 
 // --- EVENTO PRINCIPAL ---
@@ -61,8 +62,10 @@ form.addEventListener('submit', async (event) => {
 // --- FUNÇÕES ---
 
 async function buscarDadosDoGitHub(username) {
-    // Eu mostro o estado de carregamento ANTES de começar as chamadas de rede.
-    resultadoDiv.innerHTML = '<p>Carregando...</p>';
+    // Agora, em vez de texto, eu limpo a área de resultado...
+    resultadoDiv.innerHTML = '';
+    // ...e mostro meu spinner removendo a classe 'hidden'.
+    spinner.classList.remove('hidden');
 
     try {
         // CONCEITO NOVO: Promise.all()
@@ -89,11 +92,16 @@ async function buscarDadosDoGitHub(username) {
             respostaDoPerfil.json(),
             respostaDosRepos.json(),
         ]);
-        
-        // Com TODOS os dados em mãos, eu chamo a função para desenhar tudo na tela.
+
+        // Com os dados prontos, eu escondo o spinner...
+        spinner.classList.add('hidden');
+        // ...e então renderizo os resultados.
         renderizarTudo(dadosDoPerfil, dadosDosRepos);
 
     } catch (erro) {
+        // Se der erro, eu também escondo o spinner...
+        spinner.classList.add('hidden');
+        // ...e então mostro a mensagem de erro.
         renderizarErro(erro.message);
     }
 }
