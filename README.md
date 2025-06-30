@@ -63,7 +63,7 @@ Feito com dedicação por **Guilherme CCR**.
 
 ```bash
 # 1. Clone este repositório
-$ git clone [https://github.com/gui-ccr/github-profile-finder.git](https://github.com/gui-ccr/github-profile-finder.git)
+$ git clone [https://github.com/gui-ccr/github-profile-finder.git]
 
 # 2. Navegue até o diretório do projeto
 $ cd github-profile-finder
