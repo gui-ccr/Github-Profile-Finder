@@ -1,6 +1,51 @@
+// --- NOVO CÓDIGO PARA O TEMA ---
+
+// 1. Eu pego as ferramentas que preciso: o botão de tema e o elemento <body>.
+const themeToggleButton = document.querySelector('#theme-toggle-button');
+const body = document.querySelector('body');
+
+function atualizarIconeDoTema(){
+    const temaAtual = body.dataset.theme
+
+    if (temaAtual == 'light'){
+        themeToggleButton.innerHTML = '⏾'
+    }else{
+        themeToggleButton.innerHTML = '☀'
+    }
+}
+
+// 2. Eu crio o "escutador" para o clique no botão de tema.
+themeToggleButton.addEventListener('click', () => {
+    // Eu pego o tema atual lendo o atributo 'data-theme' do body.
+    // Se for 'light', o novo tema será 'dark'. Caso contrário, será 'light'.
+    const isLight = body.dataset.theme === 'light';
+    const novoTema = isLight ? 'dark' : 'light';
+    
+    // Eu defino o novo tema no atributo 'data-theme' do body.
+    // Isso vai fazer com que as variáveis de cor do CSS mudem automaticamente!
+    body.dataset.theme = novoTema;
+
+    // Eu salvo a escolha do usuário no localStorage para lembrar da próxima vez.
+    localStorage.setItem('tema', novoTema);
+    atualizarIconeDoTema()
+});
+
+// 3. Eu verifico se o usuário já tinha um tema salvo.
+// Isso acontece uma vez, quando a página carrega.
+const temaSalvo = localStorage.getItem('tema');
+
+if (temaSalvo) {
+    // Se encontrei um tema salvo, eu o aplico imediatamente no body.
+    body.dataset.theme = temaSalvo;
+}
+
+// --- FIM DO CÓDIGO DO TEMA ---
+
+
 const form = document.querySelector('#form-busca');
 const input = document.querySelector('#input-busca');
 const resultadoDiv = document.querySelector('#resultado');
+
 
 // --- EVENTO PRINCIPAL ---
 form.addEventListener('submit', async (event) => {

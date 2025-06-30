@@ -1,3 +1,36 @@
+/* --- NOSSAS VARIÁVEIS DE COR --- */
+
+/* Eu defino os valores REAIS para o meu tema escuro (padrão) aqui. */
+:root {
+    --cor-fundo: #1a1a1a;
+    --cor-fundo-card: #282c34;
+    --cor-hover-lista: #3b4049;
+    --cor-borda: #444;
+    --cor-texto-principal: white;
+    --cor-texto-secundario: #aaa;
+    --cor-primaria: #007bff;
+    --cor-primaria-hover: #0056b3;
+    --cor-link-repo: #61dafb;
+    --cor-erro: #e06c75;
+    --cor-fundo-erro: rgba(224, 108, 117, 0.1);
+}
+
+/* Quando o body tiver o atributo 'data-theme="light"', estas cores serão usadas. */
+body[data-theme="light"] {
+    --cor-fundo: #f0f2f5;
+    --cor-fundo-card: #ffffff;
+    --cor-hover-lista: #e9ebee;
+    --cor-borda: #ddd;
+    --cor-texto-principal: #1c1e21;
+    --cor-texto-secundario: #606770;
+    /* As cores primárias podem ou não mudar, é uma decisão de design */
+    --cor-primaria: #007bff;
+    --cor-primaria-hover: #0056b3;
+    --cor-link-repo: #0d86a8;
+}
+
+/* --- ESTILOS GERAIS (USANDO AS VARIÁVEIS) --- */
+
 * {
     margin: 0;
     padding: 0;
@@ -5,19 +38,23 @@
 }
 
 body {
-    background-color: #1a1a1a;
-    color: white;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto-principal);
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     padding-top: 50px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.app{
+.app {
     width: 100%;
     max-width: 500px;
     text-align: center;
 }
+
+
+
 h1 {
     margin-bottom: 20px;
 }
@@ -27,90 +64,116 @@ h1 {
     gap: 10px;
     margin-bottom: 20px;
 }
+
 #input-busca {
     flex-grow: 1;
     padding: 10px;
-    border: 1px solid #444;
-    background-color: #282c34;
-    color: white;
+    border: 1px solid var(--cor-borda);
+    background-color: var(--cor-fundo-card);
+    color: var(--cor-texto-principal);
     border-radius: 5px;
     font-size: 16px;
 }
-#form-busca button{
+
+#form-busca button {
     padding: 10px 20px;
     border: none;
-    background-color: #007bff;
-    color: white;
+    background-color: var(--cor-primaria);
+    color: white; /* Botões geralmente ficam melhores com texto branco */
     font-weight: bold;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.2s;
 }
+
 #form-busca button:hover {
-    background-color: #0056b3;
+    background-color: var(--cor-primaria-hover);
 }
+
+#theme-toggle-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px; 
+    border: 1px solid var(--cor-borda);
+    background-color: var(--cor-fundo-card);
+    color: var(--cor-texto-principal);
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+}
+#theme-toggle-button:hover {
+    transform: scale(1.1); /* Efeito de zoom suave ao passar o mouse */
+}
+
 #resultado {
-    margin-top: 20px
+    margin-top: 20px;
 }
-.profile-card{
-    background-color: #282c34;
+
+.profile-card {
+    background-color: var(--cor-fundo-card);
     padding: 30px;
     border-radius: 10px;
-    border: 1px solid #444;
+    border: 1px solid var(--cor-borda);
     margin-top: 20px;
     text-align: center;
 }
+
 .avatar {
     width: 150px;
     height: 150px;
-    border-radius: 50%; /* deixa a imagem redonda*/
-    border: 4px solid #007bff;
+    border-radius: 50%;
+    border: 4px solid var(--cor-primaria);
     margin-bottom: 20px;
 }
+
 .profile-card h2 {
     margin-bottom: 5px;
-    font-size:  28px;
+    font-size: 28px;
 }
-.username{
-    color: #aaa;
+
+.username {
+    color: var(--cor-texto-secundario);
     margin-bottom: 15px;
     font-size: 18px;
 }
-.bio{
+
+.bio {
     margin-bottom: 20px;
     font-size: 16px;
     line-height: 1.5;
 }
-.stats{
+
+.stats {
     display: flex;
     justify-content: space-around;
-    background-color: #1a1a1a;
+    background-color: var(--cor-fundo);
     padding: 15px;
     border-radius: 5px;
 }
-.stats div{
+
+.stats div {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.stats strong{
+
+.stats strong {
     font-size: 14px;
-    color: #aaa;
+    color: var(--cor-texto-secundario);
     margin-bottom: 5px;
 }
-.stats span{
+
+.stats span {
     font-size: 24px;
     font-weight: bold;
 }
-.erro {
-    color: #e06c75;
-    background-color: rgba(224, 108, 117, 0.1);
-    border: 1px solid #e06c75;
-    padding: 15px;
-    border-radius: 5px;
-    margin-top: 20px;
-}
-/* Estilos para o container de repositórios */
+
 .repos-container {
     margin-top: 30px;
     text-align: left;
@@ -118,16 +181,16 @@ h1 {
 
 .repos-container h3 {
     margin-bottom: 10px;
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid var(--cor-borda);
     padding-bottom: 10px;
 }
 
 .repos-container ul {
-    list-style-type: none; /* Remove as bolinhas da lista */
+    list-style-type: none;
 }
 
 .repos-container li {
-    background-color: #282c34;
+    background-color: var(--cor-fundo-card);
     padding: 15px;
     border-radius: 5px;
     margin-bottom: 10px;
@@ -138,11 +201,11 @@ h1 {
 }
 
 .repos-container li:hover {
-    background-color: #3b4049;
+    background-color: var(--cor-hover-lista);
 }
 
 .repos-container a {
-    color: #61dafb; /* Um azul claro para os links */
+    color: var(--cor-link-repo);
     text-decoration: none;
     font-weight: bold;
 }
@@ -152,6 +215,15 @@ h1 {
 }
 
 .repos-container span {
-    color: #aaa;
+    color: var(--cor-texto-secundario);
     font-size: 14px;
+}
+
+.erro {
+    color: var(--cor-erro);
+    background-color: var(--cor-fundo-erro);
+    border: 1px solid var(--cor-erro);
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
 }
